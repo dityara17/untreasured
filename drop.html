@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <style>
+        .bo,.droppable {
+            border: 1px solid grey;
+            margin-top: 10px;
+            min-height: 100px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+</head>
+<body>
+<div class="bo">
+    <div class="draggable" name="name">Name</div>
+    <div class="draggable" name="LastName">LastName</div>
+    <div class="draggable" name="Country">Country</div>
+</div>
+<div class="droppable">
+    <div class="draggable" name="name">Name</div>
+</div>
+
+<script>
+    $('.draggable').draggable({
+        revert: "invalid",
+        stack: ".draggable",
+    });
+    $('.droppable').droppable({
+        accept: ".draggable",
+        drop: function (event, ui) {
+            var droppable = $(this);
+            var draggable = ui.draggable;
+            // Move draggable into droppable
+        }
+    });
+</script>
+</body>
+</html>

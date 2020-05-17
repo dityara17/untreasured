@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <style>
+        .bo  {
+            border: 1px solid grey;
+            margin-top: 10px;
+            min-height: 100px;
+        }
+        li{
+            padding: 10px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+</head>
+<body>
+<div class="bo">
+    <div class="droppable">
+        <ul>
+            <li class="draggable">
+                <div class="" name="name">Adit</div>
+            </li>
+        </ul>
+    </div>
+    <div class="droppable">
+        <ul>
+            <li class="draggable">
+                <div class="" name="name">Rizki</div>
+            </li>
+        </ul>
+    </div>
+    <div class="droppable">
+        <ul>
+            <li class="draggable">
+                <div class="" name="name">Pratama</div>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+<hr>
+
+<div class="droppable">
+    <ul>
+        <li class="draggable">
+            <div class="" name="name">Pratama</div>
+        </li>
+    </ul>
+</div>
+
+<script>
+
+
+    $('.draggable').draggable({
+        cursor: "move",
+        revert: true,
+        appendTo: "body",
+        containment: "document",
+        distance: 50
+    });
+
+    $('.droppable').droppable({
+        hoverClass: "hoverDrop",
+        tolerance: "pointer",
+        drop: function(event, ui) {
+            $(this).find('ul').append(ui.draggable);
+        }
+    });
+</script>
+</body>
+</html>
